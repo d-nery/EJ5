@@ -9,16 +9,15 @@ const onStateClick = (event, args) => {
 const onStateChange = () => {
     $('#column-chart').insertFusionCharts({
         type: "column2d",
-        renderAt: "map",
         width: "100%",
         height: "100%",
         dataFormat: "jsonurl",
-        dataSource: 'http://localhost:8000/static/map1-' + current_estado + '.json',
+        dataSource: 'http://127.0.0.1:5000/map' + current_data + '/' + current_estado,
     });
 }
 
 var brazil_map = undefined;
-var current_data = 0;
+var current_data = 1;
 var current_estado = "SP";
 
 $(document).ready(() => {
@@ -26,8 +25,8 @@ $(document).ready(() => {
         $(el).on('click', () => {
             $('.list-unstyled > li').removeClass('active');
             $(el).addClass('active');
-            brazil_map.setChartDataUrl('http://localhost:8000/static/'+ $(el).data('map') + '.json', 'json');
-            current_data = i;
+            current_data = i + 1;
+            brazil_map.setChartDataUrl('http://127.0.0.1:5000/'+ $(el).data('map'), 'json');
         });
     });
 
@@ -41,7 +40,7 @@ FusionCharts.ready(() => {
         width: "100%",
         height: "100%",
         dataFormat: "jsonurl",
-        dataSource: 'http://localhost:8000/static/map1.json',
+        dataSource: 'http://127.0.0.1:5000/map1',
 
         events: {
             entityClick: onStateClick
