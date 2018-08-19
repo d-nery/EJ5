@@ -1,0 +1,36 @@
+{% extends "app/base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+
+<div class="d-flex flex-row">
+
+<nav class="sidebar d-flex flex-column">
+    <div class="profile">
+        <div class="profile-pic float-left">
+            <img src="{% static 'app/img/person-placeholder.jpg' %}" alt="" class="rounded-circle">
+        </div>
+        <div class="profile-info float-left">
+            <span>Bem-vinda,</span>
+            <h2>Maria</h2>
+        </div>
+    </div>
+
+    <ul class="list-unstyled components">
+        <p>Reportes</p>
+        {% for map in maps %}
+        <li data-map={{ map.name }} {% if forloop.begin %}class="active"{% endif %}>{{ map.title }}</li>
+        {% endfor %}
+    </ul>
+    <img class="mt-auto mx-auto mb-2" src="{% static 'app/img/netclaroembratel.png' %}" alt="">
+</nav>
+
+<div id="map"></div>
+
+<div class="right">
+    <p id="cd">0</p>
+</div>
+
+</div>
+
+{% endblock %}
