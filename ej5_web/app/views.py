@@ -44,7 +44,7 @@ def index(request):
 def disparities(request, tid):
     table = {}
 
-    table["datajson"] = "http://127.0.0.1:5000/tabela" + str(tid)
+    table["datajson"] = "http://ej5-16.thunderatz.org/flask/tabela" + str(tid)
 
     if (tid == 2):
         table['title'] = 'Titulo'
@@ -79,7 +79,7 @@ def disparities(request, tid):
         }
 
     elif (tid == 4):
-        table['title'] = 'Titulo'
+        table['title'] = 'Produtos Não Registrados Para Recebimento de Crédito'
         table["headers"] = {
             'DSC_PRODUTO': 'Descrição',
             'PRODUTOS': 'Quantidade',
@@ -87,6 +87,37 @@ def disparities(request, tid):
             'VLR_DIFAL': 'VLR_DIFAL',
             'VLR_ICMS_NDESTAC': 'VLR_ICMS_NDESTAC',
             'VLR_SUBST_ICMS': 'VLR_SUBST_ICMS',
+        }
+
+    elif (tid == 5):
+        table['title'] = 'Valor Total de Crédito'
+        table["headers"] = {
+            'COD_CFO': 'CFOP',
+            'UF': 'UF',
+            'VLR_CRED_ICMS': 'Crédito ICMS',
+            'VLR_CRED_DIF_ALIQ': 'Crédito DIFAL',
+            'VLR_ICMSS': 'Crédito ICMS-ST',
+            'TOTAL': 'Total',
+        }
+
+    elif (tid == 6):
+        table['title'] = 'Divergência entre ICMS tabelado e calculado'
+        table["headers"] = {
+            'COD_BEM': 'CIB',
+            'DAT_OPER': 'Data',
+            'vlr_tot_icms': 'ICMS Tabelado',
+            'VLR_TOT': 'ICMS Calculado',
+            'MATCH_TRUE': 'Correto?',
+        }
+
+    elif (tid == 7):
+        table['title'] = 'Crédito Perdido'
+        table["headers"] = {
+            'CIB': 'CIB',
+            'Centro': 'Centro',
+            'UF': 'UF',
+            'credito_perdido': 'Crédito Perdido',
+            'data': 'Data',
         }
 
     return render(request, 'app/table.html', { 't': table })

@@ -16,11 +16,16 @@
         </div>
     </div>
 
-    <ul class="list-unstyled components">
+    <ul class="list-unstyled list-unstyled1 components">
         <p>Reportes</p>
         {% for map in maps %}
         <li data-map={{ map.name }} {% if forloop.first %}class="active"{% endif %}>{{ map.title }}</li>
         {% endfor %}
+    </ul>
+    <ul class="list-unstyled list-unstyled2 components">
+        <li data-table='4'>Produtos Não Registrados</li>
+        <li data-table='6'>ICMS tabelado e calculado</li>
+        <li data-table='7'>Crédito Perdido</li>
     </ul>
     <img class="mt-auto mx-auto mb-2" src="{% static 'app/img/netclaroembratel.png' %}" alt="">
 </nav>

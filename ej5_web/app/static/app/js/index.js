@@ -9,16 +9,16 @@ const onStateClick = (event, args) => {
 }
 
 const onStateChange = () => {
-    column_chart_map1.setChartDataUrl('http://127.0.0.1:5000/map' + current_data + '/' + current_estado, 'json');
+    column_chart_map1.setChartDataUrl('http://ej5-16.thunderatz.org/flask/map' + current_data + '/' + current_estado, 'json');
 }
 
 $(document).ready(() => {
-    $('.list-unstyled > li').each((i, el) => {
+    $('.list-unstyled1 > li').each((i, el) => {
         $(el).on('click', () => {
-            $('.list-unstyled > li').removeClass('active');
+            $('.list-unstyled1 > li').removeClass('active');
             $(el).addClass('active');
             current_data = $(el).data('map').slice(-1);
-            brazil_map.setChartDataUrl('http://127.0.0.1:5000/'+ $(el).data('map'), 'json');
+            brazil_map.setChartDataUrl('http://ej5-16.thunderatz.org/flask/'+ $(el).data('map'), 'json');
 
             $('#details-btn').off('click')
 
@@ -37,6 +37,12 @@ $(document).ready(() => {
         });
     });
 
+    $('.list-unstyled2 > li').each((i, el) => {
+        $(el).on('click', () => {
+            window.location = window.location.href + 'tabela/' + $(el).data('table');
+        });
+    });
+
     onStateChange();
 });
 
@@ -47,7 +53,7 @@ FusionCharts.ready(() => {
         width: "100%",
         height: "100%",
         dataFormat: "jsonurl",
-        dataSource: 'http://127.0.0.1:5000/map1',
+        dataSource: 'http://ej5-16.thunderatz.org/flask/map1',
 
         events: {
             entityClick: onStateClick
@@ -60,7 +66,7 @@ FusionCharts.ready(() => {
         width: "100%",
         height: "100%",
         dataFormat: "jsonurl",
-        dataSource: 'http://127.0.0.1:5000/map' + current_data + '/' + current_estado,
+        dataSource: 'http://ej5-16.thunderatz.org/flask/map' + current_data + '/' + current_estado,
     })
 
     brazil_map.render();

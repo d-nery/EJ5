@@ -11,9 +11,18 @@ $(document).ready(() => {
     "scrollX": true,
     "scrollY": 700,
     "scrollCollapse": true,
+    "dom": 'Bfrtip',
+    "buttons": [
+      {
+        extend: 'collection',
+        text: 'Exportar',
+        buttons: [ 'csv' ]
+      }
+    ],
+    "lengthMenu": ["15", "30", "50", "100"]
   });
 });
 
 $('#back-btn').on('click', () => {
-  window.location = 'http://127.0.0.1:8000/';
+  window.location = 'http://ej5-16.thunderatz.org/';
 });

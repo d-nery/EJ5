@@ -423,3 +423,37 @@ def map5BA():
         })
 
     return jsonify(dado5)
+
+tabela5 = {}
+with open('data/tabela_cfo_impostos_completa.json', 'r') as file:
+    tabela5 = json.loads(file.read())
+
+    for d in tabela5:
+        d['VLR_CRED_ICMS'] = round(d['VLR_CRED_ICMS'], 2)
+        d['TOTAL'] = round(d['TOTAL'], 2)
+        d['VLR_ICMSS'] = round(d['VLR_ICMSS'], 2)
+        d['VLR_CRED_DIF_ALIQ'] = round(d['VLR_CRED_DIF_ALIQ'], 2)
+
+@app.route('/tabela5')
+def valor_credito():
+    return jsonify({ "data": tabela5 })
+
+
+
+############ ITEM_E
+tabela6 = {}
+with open('data/item_e_tudo.json', 'r') as file:
+    tabela6 = json.loads(file.read())
+
+@app.route('/tabela6')
+def itemE():
+    return jsonify({ "data": tabela6 })
+
+############ ITEM_E
+tabela7 = {}
+with open('data/credito_perdido.json', 'r') as file:
+    tabela7 = json.loads(file.read())
+
+@app.route('/tabela7')
+def tab7():
+    return jsonify({ "data": tabela7 })
