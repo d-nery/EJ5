@@ -78,3 +78,19 @@ p {
 .column-chart {
     height: 30%;
 }
+
+.navbar {
+    background-color: #d7321e;
+    color: #ffffff;
+}
+
+/* .navbar div{
+    color: #ffffff;
+} */
+
+.table-info {
+    left: 50%;
+    padding: 4px;
+    color: #ffffff;
+
+}
