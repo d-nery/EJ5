@@ -5,5 +5,5 @@ app_name = 'app'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('table/<int:id>', views.disparities, name='disparities'),
+    path('tabela/<int:tid>', views.disparities, name='disparities'),
 ]

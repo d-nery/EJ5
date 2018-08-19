@@ -216,7 +216,7 @@ def map2AL():
 
 tabela2 = {}
 with open('data/disparidades_tabela.json', 'r') as file:
-    tabela = json.loads(json.loads(file.read()))
+    tabela2 = json.loads(json.loads(file.read()))
 
 @app.route('/tabela2')
 def tabela_disparidades():
