@@ -13,6 +13,11 @@
   position: fixed;
 }
 
+.maria {
+    border: 1px solid rgba(52,73,94,.44);
+    height: 40px;
+}
+
 .btn {
   background: transparent;
 }
