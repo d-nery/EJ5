@@ -64,6 +64,15 @@ def disparities(request, tid):
 
     elif (tid == 3):
         table["headers"] = {
+            'COD_BEM': 'CBI',
+            'UF': 'UF',
+            'COD_ESTADO': 'COD_ESTADO',
+            'COD_CFO_AQUISICAO': 'COD_CFO_AQUISICAO',
+            'COD_CFO_PRODUTO': 'COD_CFO_PRODUTO',
+        }
+
+    elif (tid == 4):
+        table["headers"] = {
             'DSC_PRODUTO': 'Descrição',
             'PRODUTOS': 'Quantidade',
             'SOMA_VLR': 'SOMA_VLR',

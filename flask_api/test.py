@@ -222,7 +222,7 @@ with open('data/disparidades_tabela.json', 'r') as file:
 def tabela_disparidades():
     return jsonify({ "data": tabela2 })
 
-######## MAPA3
+######## MAPA3  <- DIF CFO
 mapa3_df = pd.read_csv('data/map3.csv')
 mapa3_AL_df = pd.read_csv('data/map3AL.csv')
 mapa3_BA_df = pd.read_csv('data/map3BA.csv')
@@ -315,7 +315,7 @@ def map3BA():
     return jsonify(dado3)
 
 tabela3 = {}
-with open('data/produtos_vs_aquisicao_impostos.json', 'r') as file:
+with open('data/comparacao_cfos.json', 'r') as file:
     tabela3 = json.loads(file.read())
 
 @app.route('/tabela3')
@@ -325,7 +325,7 @@ def produtos_vs_aquisicao_impostos():
 
 
 tabela4 = {}
-with open('data/comparacao_cfos.json', 'r') as file:
+with open('data/produtos_vs_aquisicao_impostos.json', 'r') as file:
     tabela4 = json.loads(file.read())
 
 @app.route('/tabela4')
