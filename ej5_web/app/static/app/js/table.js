@@ -9,6 +9,8 @@ $(document).ready(() => {
     "ajax": $('#tabela').data('json'),
     "columns": columns,
     "scrollX": true,
+    "scrollY": 700,
+    "scrollCollapse": true,
   });
 });
 

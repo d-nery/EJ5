@@ -34,6 +34,11 @@ def index(request):
         'title': 'Divergências CFOP',
     })
 
+    maps.append({
+        'name': 'map5',
+        'title': 'Valor Total de Crédito',
+    })
+
     return render(request, 'app/index.html', { 'maps': maps })
 
 def disparities(request, tid):
@@ -42,6 +47,7 @@ def disparities(request, tid):
     table["datajson"] = "http://127.0.0.1:5000/tabela" + str(tid)
 
     if (tid == 2):
+        table['title'] = 'Titulo'
         table["headers"] = {
             'COD_BEM': 'CIB',
             'UF': 'UF',
@@ -63,6 +69,7 @@ def disparities(request, tid):
         }
 
     elif (tid == 3):
+        table['title'] = 'Titulo'
         table["headers"] = {
             'COD_BEM': 'CBI',
             'UF': 'UF',
@@ -72,6 +79,7 @@ def disparities(request, tid):
         }
 
     elif (tid == 4):
+        table['title'] = 'Titulo'
         table["headers"] = {
             'DSC_PRODUTO': 'Descrição',
             'PRODUTOS': 'Quantidade',

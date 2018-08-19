@@ -1,5 +1,8 @@
+#table-container {
+    height: 100vh;
+}
+
 .navbar {
-  height: 10vh;
   background-color: #d7321e;
   color: #ffffff;
 }
@@ -13,4 +16,3 @@
 .btn {
   background: transparent;
 }
-

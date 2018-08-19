@@ -3,16 +3,22 @@
 
 {% block body_block %}
 
-<nav class="navbar navbar-default navbar-fixed-top justify-content-between">
+<div id="table-container">
+
+<nav class="navbar navbar-default navbar-fixed-top justify-content-between mb-2">
     <div class="back-button">
         <button id="back-btn" class="btn btn-default">
             <img src="{% static 'app/img/back.png' %}" width="20" />
        </button>
     </div>
-    <h2>Tabela top</h2>
-    <div>
-      <span>Bem-vinda,</span>
-      <h2>Maria</h2>
+    <h2>{{t.title}}</h2>
+    <div class="">
+        {% comment %} <div class="profile-pic float-left">
+            <img src="{% static 'app/img/person-placeholder.jpg' %}" alt="" class="rounded-circle">
+        </div> {% endcomment %}
+        <div class="">
+            <h2>Maria</h2>
+        </div>
     </div>
 </nav>
 
@@ -27,5 +33,7 @@
       </thead>
     </table>
   </div>
+
+</div>
 
 {% endblock %}

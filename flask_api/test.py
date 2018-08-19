@@ -331,3 +331,95 @@ with open('data/produtos_vs_aquisicao_impostos.json', 'r') as file:
 @app.route('/tabela4')
 def comparacao_cfos():
     return jsonify({ "data": tabela4 })
+
+####### MAPA5
+mapa5_df = pd.read_csv('data/map5.csv')
+mapa5_AL_df = pd.read_csv('data/map5AL.csv')
+mapa5_BA_df = pd.read_csv('data/map5BA.csv')
+mapa5_SP_df = pd.read_csv('data/map5SP.csv')
+
+out5 = {
+    "chart": {
+        "caption": "Valor Total de Crédito",
+        "subcaption": "Atual e Futuro",
+        "includevalueinlabels": "1",
+        "labelsepchar": ": ",
+        "entityFillHoverColor": "#b5c23f",
+        "theme": "fusion",
+        "showLegend": "1"
+    },
+    "colorrange": {
+        "minvalue": "0",
+        "code": "#6baa01",
+        "gradient": "1",
+        "color": [{
+            "maxvalue": 24000000,
+            "code": "f8bd19"
+        }, {
+            "maxvalue": 48000000,
+            "code": "e44a00"
+        }]
+    },
+    "data": []
+}
+
+for tup in mapa5_df.itertuples():
+    out5['data'].append({
+        'id': str(estados[tup.UF]),
+        'value': str(tup.TOTAL)
+    })
+
+@app.route('/map5')
+def map5():
+    return jsonify(out5)
+
+dado5 = {
+    "chart": {
+        "caption": "",
+        "subcaption": "Estados x Quantidade",
+        "xaxisname": "Estado",
+        "yaxisname": "Unidades",
+        "numbersuffix": "",
+        "theme": "fusion",
+    },
+    "data": []
+}
+
+@app.route('/map5/SP')
+def map5SP():
+    dado5['chart']['caption'] = 'São Paulo'
+    dado5['data'] = []
+
+    for tup in mapa5_SP_df.itertuples():
+        dado5['data'].append({
+            'label': str(tup.CFOP),
+            'value': str(tup.TOTAL)
+        })
+
+    return jsonify(dado5)
+
+@app.route('/map5/AL')
+def map5AL():
+    dado5['chart']['caption'] = 'Alagoas'
+    dado5['data'] = []
+
+    for tup in mapa5_AL_df.itertuples():
+        dado5['data'].append({
+            'label': str(tup.CFOP),
+            'value': str(tup.TOTAL)
+        })
+
+    return jsonify(dado5)
+
+@app.route('/map5/BA')
+def map5BA():
+    dado5['chart']['caption'] = 'Bahia'
+    dado5['data'] = []
+
+    for tup in mapa5_BA_df.itertuples():
+        dado5['data'].append({
+            'label': str(tup.CFOP),
+            'value': str(tup.TOTAL)
+        })
+
+    return jsonify(dado5)
