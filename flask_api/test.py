@@ -148,3 +148,64 @@ def map2():
         })
 
     return jsonify(dado2)
+
+def gen_dado3():
+    dado3 = {
+        "chart": {
+            "caption": "Divergências por estado",
+            "subcaption": "Jun 2018",
+            "includevalueinlabels": "1",
+            "labelsepchar": ": ",
+            "entityFillHoverColor": "#b5c23f",
+            "theme": "fusion",
+            "showLegend": "1"
+        },
+        "colorrange": {
+            "minvalue": "0",
+            "code": "#6baa01",
+            "gradient": "1",
+            "color": [{
+                "maxvalue": 500,
+                "code": "f8bd19"
+            }, {
+                "maxvalue": 1000,
+                "code": "e44a00"
+            }]
+        },
+        "data": []
+    }
+    return dado3
+
+s = {}
+with open('inconsistencias_estado.json', 'r') as file:
+    s = json.loads(file.read())
+
+
+@app.route('/map2/SP')
+def map2SP():
+    dado3 = gen_dado3()
+    for key in s['SP']:
+        dado3['data'].append({
+            'label':key,
+            'value': s['SP'][key]
+        })
+    return jsonify(dado3)
+@app.route('/map2/BA')
+def map2BA():
+    dado3 = gen_dado3()
+    for key in s['BA']:
+        dado3['data'].append({
+            'label':key,
+            'value': s['BA'][key]
+        })
+    return jsonify(dado3)
+
+@app.route('/map2/AL')
+def map2AL():
+    dado3 = gen_dado3()
+    for key in s['AL']:
+        dado3['data'].append({
+            'label':key,
+            'value': s['AL'][key]
+        })
+    return jsonify(dado3)
