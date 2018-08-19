@@ -112,12 +112,25 @@ def map1BA():
 
 dado2 = {
     "chart": {
-        "caption": "",
-        "subcaption": "Estados x Quantidade",
-        "xaxisname": "Estado",
-        "yaxisname": "Unidades",
-        "numbersuffix": "",
+        "caption": "Disparidades",
+        "subcaption": "Jun 2018",
+        "includevalueinlabels": "1",
+        "labelsepchar": ": ",
+        "entityFillHoverColor": "#b5c23f",
         "theme": "fusion",
+        "showLegend": "1"
+    },
+    "colorrange": {
+        "minvalue": "0",
+        "code": "#6baa01",
+        "gradient": "1",
+        "color": [{
+            "maxvalue": 125,
+            "code": "f8bd19"
+        }, {
+            "maxvalue": 250,
+            "code": "e44a00"
+        }]
     },
     "data": []
 }
@@ -129,7 +142,9 @@ def map2():
         s = json.loads(file.read())
     dado2['chart']['caption'] = 'Disparidades'
     for k, v in s.items():
-        dado2['data'].append({'label': k,
-                              'value': v} )
+        dado2['data'].append({
+            'id': estados[k],
+            'value': v
+        })
 
     return jsonify(dado2)
