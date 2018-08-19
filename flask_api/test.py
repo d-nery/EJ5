@@ -210,3 +210,11 @@ def map2AL():
             'value': s['AL'][key]
         })
     return jsonify(dado3)
+
+tabela = {}
+with open('disparidades_tabela.json', 'r') as file:
+    tabela = json.loads(file.read())
+
+@app.route('/tabela')
+def tabela_disparidades():
+    return jsonify(tabela)
