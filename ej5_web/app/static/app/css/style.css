@@ -101,3 +101,19 @@ p {
 #details-btn:hover {
     background-color: #c12c1a;
 }
+
+.navbar {
+    background-color: #d7321e;
+    color: #ffffff;
+}
+
+/* .navbar div{
+    color: #ffffff;
+} */
+
+.table-info {
+    left: 50%;
+    padding: 4px;
+    color: #ffffff;
+
+}

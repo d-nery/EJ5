@@ -217,4 +217,4 @@ with open('disparidades_tabela.json', 'r') as file:
 
 @app.route('/tabela')
 def tabela_disparidades():
-    return jsonify(tabela)
+    return jsonify({ "data": tabela })
