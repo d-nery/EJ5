@@ -19,6 +19,11 @@ $(document).ready(() => {
         { "data": "VLR_CRED_ICMS_rastr" },
         { "data": "VLR_ICMSS_aquis" },
         { "data": "VLR_ICMSS_rastr" },
-    ]
+    ],
+    "scrollX": true,
   });
+});
+
+$('#back-btn').on('click', () => {
+  window.location = 'http://127.0.0.1:8000/';
 });

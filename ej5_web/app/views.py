@@ -31,5 +31,17 @@ def index(request):
 
     return render(request, 'app/index.html', { 'maps': maps })
 
-def disparities(request):
-    return render(request, 'app/table.html')
+def disparities(request, id):
+    table = {
+        "datajson": "http://127.0.0.1:5000/tabela" + str(id)
+        "headers": [
+            'CIB', 'UF', 'NUM_DOCFIS', 'COD_CFO_aquis', 'COD_CFO_rastr',
+            'COD_ESTAB_aquis', 'COD_ESTAB_rastr', 'COD_PRODUTO_aquis',
+            'COD_PRODUTO_rastr', 'DAT_OPER_aquis', 'DAT_OPER_rastr',
+            'VLR_CRED_DIF_ALIQ_aquis', 'VLR_CRED_DIF_ALIQ_rastr',
+            'VLR_CRED_ICMS_aquis', 'VLR_CRED_ICMS_rastr',
+            'VLR_ICMSS_aquis', 'VLR_ICMSS_rastr'
+        ]
+    }
+
+    return render(request, 'app/table.html', { 't': table })

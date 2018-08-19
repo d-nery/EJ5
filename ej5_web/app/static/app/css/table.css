@@ -1,6 +1,16 @@
 .navbar {
-  width: 100vw;
   height: 10vh;
   background-color: #d7321e;
   color: #ffffff;
 }
+
+.navbar fixed-top {
+  right: 0;
+  left: 0;
+  position: fixed;
+}
+
+.btn {
+  background: transparent;
+}
+

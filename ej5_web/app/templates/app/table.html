@@ -3,45 +3,30 @@
 
 {% block body_block %}
 
-{% comment %} <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">
-          <a href="#" class="previous round">&#8249;</a>
-      </a>
-      <div class="table-info"><h2>Tabela top</h2></div>
+<nav class="navbar navbar-default navbar-fixed-top justify-content-between">
+    <div class="back-button">
+        <button id="back-btn" class="btn btn-default">
+            <img src="{% static 'app/img/back.png' %}" width="20" />
+       </button>
     </div>
-  </div>
-</nav> {% endcomment %}
-
-<nav class="navbar justify-content-between">
-    <div class="back-btn" href="#">Voltar</div>
     <h2>Tabela top</h2>
-    <div>Maria</div>
+    <div>
+      <span>Bem-vinda,</span>
+      <h2>Maria</h2>
+    </div>
 </nav>
 
-<table id="tabela" class="table table-striped table-bordered" style="width:100%">
-    <thead>
-        <tr>
-            <th>COD_BEM</th>
-            <th>UF</th>
-            <th>NUM_DOCFIS</th>
-            <th>COD_CFO_aquis</th>
-            <th>COD_CFO_rastr</th>
-            <th>COD_ESTAB_aquis</th>
-            <th>COD_ESTAB_rastr</th>
-            <th>COD_PRODUTO_aquis</th>
-            <th>COD_PRODUTO_rastr</th>
-            <th>DAT_OPER_aquis</th>
-            <th>DAT_OPER_rastr</th>
-            <th>VLR_CRED_DIF_ALIQ_aquis</th>
-            <th>VLR_CRED_DIF_ALIQ_rastr</th>
-            <th>VLR_CRED_ICMS_aquis</th>
-            <th>VLR_CRED_ICMS_rastr</th>
-            <th>VLR_ICMSS_aquis</th>
-            <th>VLR_ICMSS_rastr</th>
-        </tr>
-    </thead>
-</table>
+<div class="table">
+<table id="tabela" class="table table-striped table-bordered" style="width:100%" data-json={{ t.datajson }}>
+      <thead>
+          <tr>
+            {% for h in t.headers %}
+              <th>{{h}}</th>
+            {% endfor %}
+          </tr>
+      </thead>
+    </table>
+  </div>
+
 {% endblock %}
 
