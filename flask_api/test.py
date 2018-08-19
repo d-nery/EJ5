@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import jsonify
 import pandas as pd
+import json
 
 app = Flask(__name__)
 
@@ -108,3 +109,27 @@ def map1BA():
         })
 
     return jsonify(dado)
+
+dado2 = {
+    "chart": {
+        "caption": "",
+        "subcaption": "Estados x Quantidade",
+        "xaxisname": "Estado",
+        "yaxisname": "Unidades",
+        "numbersuffix": "",
+        "theme": "fusion",
+    },
+    "data": []
+}
+
+@app.route('/map2')
+def map2():
+    s = {}
+    with open('inconsistencias.json', 'r') as file:
+        s = json.loads(file.read())
+    dado2['chart']['caption'] = 'Disparidades'
+    for k, v in s.items():
+        dado2['data'].append({'label': k,
+                              'value': v} )
+
+    return jsonify(dado2)
