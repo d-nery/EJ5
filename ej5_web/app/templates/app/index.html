@@ -19,7 +19,7 @@
     <ul class="list-unstyled components">
         <p>Reportes</p>
         {% for map in maps %}
-        <li data-map={{ map.name }} {% if forloop.begin %}class="active"{% endif %}>{{ map.title }}</li>
+        <li data-map={{ map.name }} {% if forloop.first %}class="active"{% endif %}>{{ map.title }}</li>
         {% endfor %}
     </ul>
     <img class="mt-auto mx-auto mb-2" src="{% static 'app/img/netclaroembratel.png' %}" alt="">
@@ -27,8 +27,11 @@
 
 <div id="map"></div>
 
-<div class="right">
-    <div id="column-chart"></div>
+<div class="right d-flex flex-column">
+    <div id="column-chart" class="no-btn"></div>
+    <div id="button-details" class="hidden m-auto">
+        <button id="details-btn" class="btn danger mt-4">Detalhes</button>
+    </div>
 </div>
 
 </div>

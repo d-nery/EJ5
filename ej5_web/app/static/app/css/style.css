@@ -72,9 +72,32 @@ p {
 .right {
     width: 28vw;
     height: 100vh;
-    background-color: #bdbdbd;
+    background-color: #ffffff;
 }
 
-.column-chart {
-    height: 30%;
+#column-chart {
+    height: 90%;
+    width: 100%;
+}
+
+#column-chart.no-btn {
+    height: 100%;
+}
+
+#button-details {
+    height: 10%;
+    display: block;
+}
+
+#button-details.hidden {
+    display: none;
+}
+
+#details-btn {
+    color: #ffffff;
+    background-color: #d7321e;
+}
+
+#details-btn:hover {
+    background-color: #c12c1a;
 }

@@ -21,12 +21,12 @@ def index(request):
     # Update jsons
     maps.append({
         'name': 'map1',
-        'title': 'Mapa 1',
+        'title': 'Divergências',
     })
 
     maps.append({
         'name': 'map2',
-        'title': 'Mapa 2',
+        'title': 'Disparidades',
     })
 
     return render(request, 'app/index.html', { 'maps': maps })
