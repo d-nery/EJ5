@@ -28,7 +28,7 @@ mapa1_SP_df = pd.read_csv('data/map1SP.csv')
 
 out = {
     "chart": {
-        "caption": "Divergências",
+        "caption": "Divergências entre Produtos e Aquisições",
         "subcaption": "Jun 2018",
         "includevalueinlabels": "1",
         "labelsepchar": ": ",
@@ -115,7 +115,7 @@ def map1BA():
 ####### MAPA2
 dado2 = {
     "chart": {
-        "caption": "Disparidades",
+        "caption": "Quantidade de Campos com Divergências (Aquisição e Rastreamento)",
         "subcaption": "Jun 2018",
         "includevalueinlabels": "1",
         "labelsepchar": ": ",
@@ -143,7 +143,6 @@ def map2():
     s = {}
     with open('data/inconsistencias.json', 'r') as file:
         s = json.loads(file.read())
-    dado2['chart']['caption'] = 'Disparidades'
     for k, v in s.items():
         dado2['data'].append({
             'id': estados[k],

@@ -21,12 +21,12 @@ def index(request):
     # Update jsons
     maps.append({
         'name': 'map1',
-        'title': 'Divergências',
+        'title': 'Divergências (Aquisição e Produtos)',
     })
 
     maps.append({
         'name': 'map2',
-        'title': 'Disparidades',
+        'title': 'Divergências (Aquisição e Rastreamento)',
     })
 
     maps.append({
@@ -47,7 +47,7 @@ def disparities(request, tid):
     table["datajson"] = "http://ej5-16.thunderatz.org/flask/tabela" + str(tid)
 
     if (tid == 2):
-        table['title'] = 'Titulo'
+        table['title'] = 'Campos com Divergências (Aquisição e Rastreamento)'
         table["headers"] = {
             'COD_BEM': 'CIB',
             'UF': 'UF',
@@ -69,7 +69,7 @@ def disparities(request, tid):
         }
 
     elif (tid == 3):
-        table['title'] = 'Titulo'
+        table['title'] = 'Divergências de CFOP'
         table["headers"] = {
             'COD_BEM': 'CBI',
             'UF': 'UF',
