@@ -22,11 +22,11 @@ $(document).ready(() => {
 
             $('#details-btn').off('click')
 
-            if (current_data === "2") {
+            if (current_data !== "1") {
                 $('#button-details').removeClass('hidden');
                 $('#column-chart').removeClass('no-btn');
                 $('#details-btn').on('click', () => {
-                    window.location = window.location.href + 'disparities';
+                    window.location = window.location.href + 'tabela/' + current_data;
                 });
             } else {
                 $('#button-details').addClass('hidden');
