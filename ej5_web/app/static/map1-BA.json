@@ -1,0 +1,32 @@
+{
+    "chart": {
+        "caption": "Bahia",
+        "subcaption": "Extados x Quantidade",
+        "xaxisname": "Estado",
+        "yaxisname": "Unidades",
+        "numbersuffix": "",
+        "theme": "fusion"
+    },
+    "data": [{
+        "label": "AM",
+        "value": 6
+    }, {
+        "label": "BA",
+        "value": 208
+    }, {
+        "label": "CE",
+        "value": 2
+    }, {
+        "label": "MS",
+        "value": 2
+    }, {
+        "label": "PE",
+        "value": 1
+    }, {
+        "label": "SC",
+        "value": 35
+    }, {
+        "label": "SP",
+        "value": 20
+    }]
+}

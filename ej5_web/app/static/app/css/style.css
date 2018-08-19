@@ -1,0 +1,80 @@
+.sidebar {
+    width: 15vw;
+    height: 100vh;
+    background-color: #d7321e;
+    color: #ffffff;
+    transition: all 0.3s;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    display: block;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li.active {
+    background-color: #c12c1a;
+}
+
+.sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #c12c1a;
+}
+
+.sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+.profile {
+    width: 100%;
+    background-color: #c12c1a;
+}
+
+.profile-pic {
+    width: 35%;
+}
+
+.profile-pic img {
+    width: 70%;
+    background: white;
+    margin-left: 15%;
+    margin-top: 20px;
+    border: 1px solid rgba(52,73,94,.44);
+    padding: 4px;
+}
+
+.profile-info {
+    padding: 25px 10px 10px;
+    width: 65%;
+}
+
+.sidebar img {
+    max-width: 90%;
+}
+
+#map {
+    width: 57vw;
+    height: 100vh;
+}
+
+.right {
+    width: 28vw;
+    height: 100vh;
+    background-color: #bdbdbd;
+}
+
+.column-chart {
+    height: 30%;
+}
