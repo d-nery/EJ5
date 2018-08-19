@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import jsonify
+
 import pandas as pd
 import json
 
@@ -19,10 +20,11 @@ estados = {
     'SP': '025', 'SE': '026', 'TO': '027',
 }
 
-mapa1_df = pd.read_csv('mapa1.csv')
-mapa1_AL_df = pd.read_csv('map1AL.csv')
-mapa1_BA_df = pd.read_csv('map1BA.csv')
-mapa1_SP_df = pd.read_csv('map1SP.csv')
+##### MAPA 1
+mapa1_df = pd.read_csv('data/map1.csv')
+mapa1_AL_df = pd.read_csv('data/map1AL.csv')
+mapa1_BA_df = pd.read_csv('data/map1BA.csv')
+mapa1_SP_df = pd.read_csv('data/map1SP.csv')
 
 out = {
     "chart": {
@@ -110,6 +112,7 @@ def map1BA():
 
     return jsonify(dado)
 
+####### MAPA2
 dado2 = {
     "chart": {
         "caption": "Disparidades",
@@ -138,7 +141,7 @@ dado2 = {
 @app.route('/map2')
 def map2():
     s = {}
-    with open('inconsistencias.json', 'r') as file:
+    with open('data/inconsistencias.json', 'r') as file:
         s = json.loads(file.read())
     dado2['chart']['caption'] = 'Disparidades'
     for k, v in s.items():
@@ -177,7 +180,7 @@ def gen_dado3(name=None):
     return dado3
 
 s = {}
-with open('inconsistencias_estado.json', 'r') as file:
+with open('data/inconsistencias_estado.json', 'r') as file:
     s = json.loads(file.read())
 
 
@@ -211,10 +214,120 @@ def map2AL():
         })
     return jsonify(dado3)
 
-tabela = {}
-with open('disparidades_tabela.json', 'r') as file:
+tabela2 = {}
+with open('data/disparidades_tabela.json', 'r') as file:
     tabela = json.loads(json.loads(file.read()))
 
-@app.route('/tabela')
+@app.route('/tabela2')
 def tabela_disparidades():
-    return jsonify({ "data": tabela })
+    return jsonify({ "data": tabela2 })
+
+######## MAPA3
+mapa3_df = pd.read_csv('data/map3.csv')
+mapa3_AL_df = pd.read_csv('data/map3AL.csv')
+mapa3_BA_df = pd.read_csv('data/map3BA.csv')
+mapa3_SP_df = pd.read_csv('data/map3SP.csv')
+
+out3 = {
+    "chart": {
+        "caption": "Divergencias CFOP",
+        "subcaption": "Jun 2018",
+        "includevalueinlabels": "1",
+        "labelsepchar": ": ",
+        "entityFillHoverColor": "#b5c23f",
+        "theme": "fusion",
+        "showLegend": "1"
+    },
+    "colorrange": {
+        "minvalue": "0",
+        "code": "#6baa01",
+        "gradient": "1",
+        "color": [{
+            "maxvalue": 1750/2,
+            "code": "f8bd19"
+        }, {
+            "maxvalue": 1750,
+            "code": "e44a00"
+        }]
+    },
+    "data": []
+}
+
+for tup in mapa3_df.itertuples():
+    out3['data'].append({
+        'id': str(estados[tup.UF]),
+        'value': str(tup.LUGARES_RECEBERAM_COMPRAS)
+    })
+
+@app.route('/map3')
+def map3():
+    return jsonify(out3)
+
+dado3 = {
+    "chart": {
+        "caption": "",
+        "subcaption": "Estados x Quantidade",
+        "xaxisname": "Estado",
+        "yaxisname": "Unidades",
+        "numbersuffix": "",
+        "theme": "fusion",
+    },
+    "data": []
+}
+
+@app.route('/map3/SP')
+def map3SP():
+    dado3['chart']['caption'] = 'São Paulo'
+    dado3['data'] = []
+
+    for tup in mapa3_SP_df.itertuples():
+        dado3['data'].append({
+            'label': str(tup.COD_ESTADO),
+            'value': str(tup.UF)
+        })
+
+    return jsonify(dado3)
+
+@app.route('/map3/AL')
+def map3AL():
+    dado3['chart']['caption'] = 'Alagoas'
+    dado3['data'] = []
+
+    for tup in mapa3_AL_df.itertuples():
+        dado3['data'].append({
+            'label': str(tup.COD_ESTADO),
+            'value': str(tup.UF)
+        })
+
+    return jsonify(dado3)
+
+@app.route('/map3/BA')
+def map3BA():
+    dado3['chart']['caption'] = 'Bahia'
+    dado3['data'] = []
+
+    for tup in mapa3_BA_df.itertuples():
+        dado3['data'].append({
+            'label': str(tup.COD_ESTADO),
+            'value': str(tup.UF)
+        })
+
+    return jsonify(dado3)
+
+tabela3 = {}
+with open('data/produtos_vs_aquisicao_impostos.json', 'r') as file:
+    tabela3 = json.loads(file.read())
+
+@app.route('/tabela3')
+def produtos_vs_aquisicao_impostos():
+    return jsonify({ "data": tabela3 })
+
+
+
+tabela4 = {}
+with open('data/comparacao_cfos.json', 'r') as file:
+    tabela4 = json.loads(file.read())
+
+@app.route('/tabela4')
+def comparacao_cfos():
+    return jsonify({ "data": tabela4 })
