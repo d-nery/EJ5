@@ -2,16 +2,15 @@
     "chart": {
         "caption": "Mapa",
         "subcaption": "Jun 2018",
-        "numbersuffix": "%",
         "includevalueinlabels": "1",
         "labelsepchar": ": ",
-        "entityFillHoverColor": "#bdbdbd",
+        "entityFillHoverColor": "#b5c23f",
         "theme": "fusion",
-        "showLegend": "0"
+        "showLegend": "1"
     },
     "colorrange": {
         "minvalue": "0",
-        "code": "#FFE0B2",
+        "code": "#e44a00",
         "gradient": "1",
         "color": [
             {

@@ -1,0 +1,12 @@
+{
+    "chart": {
+        "caption": "",
+        "subcaption": "Estados x Quantidade",
+        "xaxisname": "Estado",
+        "yaxisname": "Unidades",
+        "numbersuffix": "",
+        "theme": "fusion"
+    },
+
+    "data": []
+}
