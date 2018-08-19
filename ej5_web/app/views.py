@@ -38,7 +38,7 @@ def index(request):
 
 def disparities(request, id):
     table = {
-        "datajson": "http://127.0.0.1:5000/tabela" + str(id)
+        "datajson": "http://127.0.0.1:5000/tabela" + str(id),
         "headers": [
             'CIB', 'UF', 'NUM_DOCFIS', 'COD_CFO_aquis', 'COD_CFO_rastr',
             'COD_ESTAB_aquis', 'COD_ESTAB_rastr', 'COD_PRODUTO_aquis',
